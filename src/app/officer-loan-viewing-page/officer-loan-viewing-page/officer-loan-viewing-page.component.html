@@ -1,0 +1,29 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #loanForm="ngForm">
+      <div class="form-group">
+        <label>Client Name : {{loan.clientName}}</label>
+      </div>
+      <div class="form-group">
+        <label>Client SSN : {{loan.clientSSN}}</label>
+      </div>
+      <div class="form-group">
+        <label>Client Email :</label>
+        <a id="link-1" href ="mailto: {{loan.clientEmail}}">{{loan.clientEmail}}</a>
+      </div>
+      <div class="form-group">
+        <label>Requested Amount : ${{loan.requestedAmount}}</label>
+      </div>
+      <div class="form-group">
+        <label>Approved Amount : ${{loan.approvedAmount}}</label>
+      </div>
+      <div class="form-group">
+        <label>Terms : {{loan.term}} weeks</label>
+      </div>
+      <div class="form-group">
+        <label>Status : {{loan.status}}</label>
+      </div>
+      <button type="submit" class="btn btn-info">Back</button>
+    </form>
+  </div>
+</div>

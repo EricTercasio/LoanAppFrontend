@@ -1,0 +1,29 @@
+<div class="card my-5">
+  <div class="card-body">
+    <div class = "card-body">
+    <h2>Welcome {{client.name}}</h2>
+    <li class="list-inline-item"><a (click) ="onLoanRequest()" class="btn btn-info">Request New Loan</a></li>
+      <li class="list-inline-item"><a (click) ="onLogoutRequest()" class="btn btn-info">Logout</a></li>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Requested Amount</th>
+        <th scope="col">Approved Amount</th>
+        <th scope="col">Term</th>
+        <th scope="col">Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let loan of loans">
+        <td>${{ loan.requestedAmount }}</td>
+        <td *ngIf="loan.approvedAmount == '0'">--</td>
+        <td *ngIf="loan.approvedAmount != '0'">${{ loan.approvedAmount }}</td>
+        <td *ngIf="loan.term == '0'">--</td>
+        <td *ngIf="loan.term != '0'">{{loan.term}} weeks</td>
+        <td>{{ loan.status }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

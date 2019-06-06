@@ -1,0 +1,44 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #loanForm="ngForm">
+      <div class="form-group">
+        <label>Client Name : {{loan.clientName}}</label>
+      </div>
+      <div class="form-group">
+        <label>Client SSN : {{loan.clientSSN}}</label>
+      </div>
+      <div class="form-group">
+        <label>Client Email :</label>
+        <a id="link-1" href ="mailto: {{loan.clientEmail}}">{{loan.clientEmail}}</a>
+      </div>
+      <div class="form-group">
+        <label>Requested Amount : ${{loan.requestedAmount}}</label>
+      </div>
+      <div class="form-group">
+        <label for="approvedAmount">Approved Amount</label>
+        <input type="text" [(ngModel)]="loan.approvedAmount"
+               class="form-control" id="approvedAmount" name="approvedAmount" placeholder="Enter the approved amount"
+               required #approvedAmount="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="term">Terms</label>
+        <input type="text" [(ngModel)]="loan.term"
+               class="form-control" id="term" name="term" placeholder="Enter the term"
+               required #term="ngModel">
+      </div>
+      <div class="form-group">
+        <label>
+          <input type="radio" [(ngModel)]="loan.status" value = "approved" name = "status"> Approved
+        </label>
+        <label>
+          <input type="radio" [(ngModel)]="loan.status" value = "declined" name = "status"> Declined
+        </label>
+        <label>
+          <input type="radio" [(ngModel)]="loan.status" value = "pending" name = "status"> Pending
+        </label>
+      </div>
+      <div [hidden]="error == false" class="alert alert-danger">Invalid information.</div>
+      <button type="submit" [disabled]="!loanForm.form.valid" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

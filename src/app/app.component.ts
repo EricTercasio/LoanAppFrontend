@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
+  title: string;
+  loggedIn : boolean;
+
+  constructor() {
+    this.title = 'Loan Application';
+    this.loggedIn = false;
+  }
+
+  setLoggedIn(loggedIn : boolean){
+    this.loggedIn = loggedIn;
+  }
 }
